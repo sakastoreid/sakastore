@@ -243,6 +243,25 @@
     © 2026 Saka Store<br>
     Layanan digital terpercaya
 </footer>
+<script>
+document.querySelector('.buy-button').addEventListener('click', function () {
 
+    const whatsapp = document.querySelector('input[type="tel"]').value.trim();
+    const payment = document.querySelector('select').value;
+
+    if (whatsapp === '') {
+        alert('Silakan masukkan nomor WhatsApp Anda.');
+        return;
+    }
+
+    if (payment === '') {
+        alert('Silakan pilih metode pembayaran.');
+        return;
+    }
+
+    alert('Data sudah lengkap. Silakan lanjut ke pembayaran.');
+
+});
+</script>
 </body>
               </html>
