@@ -255,21 +255,12 @@
 
 <script>
     function beliProduk(namaProduk, hargaProduk) {
-    let nomorWhatsApp = prompt("Masukkan nomor WhatsApp Anda:");
-
-    if (nomorWhatsApp === null || nomorWhatsApp.trim() === "") {
-        alert("Nomor WhatsApp wajib diisi.");
-        return;
+    window.location.href =
+        "checkout.html?produk=" +
+        encodeURIComponent(namaProduk) +
+        "&harga=" +
+        encodeURIComponent(hargaProduk);
     }
-
-    alert(
-        "Pesanan berhasil dicatat!\n\n" +
-        "Produk: " + namaProduk + "\n" +
-        "Harga: Rp" + hargaProduk + "\n" +
-        "WhatsApp: " + nomorWhatsApp
-    );
-    }
-
 </script>
 
 </body>
