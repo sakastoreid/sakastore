@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Saka Store</title>
 
     <style>
@@ -10,71 +11,57 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
         }
 
         body {
+            font-family: Arial, sans-serif;
             background: #0b0b0b;
             color: white;
         }
 
         header {
-    background: #050505;
-    padding: 18px 20px;
+            background: #050505;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #222;
 }
 
-.menu {
-    width: 45px;
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    cursor: pointer;
-}
-
-.menu span {
-    display: block;
-    width: 36px;
-    height: 2px;
-    background: #999;
-    border-radius: 1px;
-}
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffd000;
-    flex: 1;
-}
-
-.flag {
-    width: 34px;
-    height: 22px;
+.indonesia-flag {
+    width: 38px;
+    height: 25px;
     border-radius: 2px;
     overflow: hidden;
-    border: 1px solid #555;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid #333;
 }
 
-.flag span:first-child {
-    background: #e00000;
+.flag-red {
+    width: 100%;
     height: 50%;
+    background: #e60000;
 }
 
-.flag span:last-child {
+.flag-white {
+    width: 100%;
+    height: 50%;
     background: #ffffff;
-    height: 50%;
 }
+
+        .menu {
+            font-size: 28px;
+            cursor: pointer;
         }
 
         .hero {
             padding: 45px 20px;
             text-align: center;
-            background: linear-gradient(180deg, #111827, #080808);
+            background: linear-gradient(135deg, #111827, #050505);
         }
 
         .hero h1 {
@@ -83,12 +70,12 @@
         }
 
         .hero p {
-            color: #bbb;
+            color: #aaa;
             line-height: 1.6;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: auto;
             padding: 30px 20px;
         }
@@ -100,7 +87,7 @@
 
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 20px;
         }
 
@@ -108,30 +95,44 @@
             background: #171717;
             border: 1px solid #292929;
             border-radius: 15px;
-            padding: 18px;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 170px;
+            background: linear-gradient(135deg, #26364d, #111827);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+
+        .product-info {
+            padding: 20px;
         }
 
         .product h3 {
             margin-bottom: 10px;
         }
 
-        .product p {
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-
         .price {
             color: #ffd000;
-            font-size: 21px;
+            font-size: 20px;
             font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stock {
+            color: #aaa;
+            font-size: 14px;
             margin-bottom: 15px;
         }
 
-        button {
+        .buy-button {
             width: 100%;
-            padding: 13px;
             border: none;
             border-radius: 10px;
+            padding: 13px;
             background: #ffd000;
             color: #111;
             font-size: 16px;
@@ -139,11 +140,15 @@
             cursor: pointer;
         }
 
+        .buy-button:hover {
+            background: #ffdf45;
+        }
+
         footer {
             margin-top: 40px;
-            padding: 30px 20px;
-            text-align: center;
+            padding: 35px 20px;
             background: #050505;
+            text-align: center;
             color: #888;
         }
     </style>
@@ -152,51 +157,95 @@
 <body>
 
 <header>
-    <div class="menu">☰</div>
-
-    <div class="logo">SAKASTORE.ID</div>
-
-    <div class="flag">
-        <span></span>
-        <span></span>
+    <div class="logo">
+        <div class="indonesia-flag">
+            <div class="flag-red"></div>
+            <div class="flag-white"></div>
+        </div>
     </div>
+
+    <div class="menu">☰</div>
 </header>
 
 <section class="hero">
     <h1>Selamat Datang di Saka Store</h1>
     <p>
-        Tempat pembelian produk digital dengan proses cepat,
-        mudah dan otomatis.
+        Tempat membeli berbagai produk digital
+        dengan proses cepat dan mudah.
     </p>
 </section>
 
-<div class="container">
+<main class="container">
 
-    <h2 class="section-title">Produk Kami</h2>
+    <h2 class="section-title">Produk Terlaris</h2>
 
     <div class="products">
 
         <div class="product">
-            <h3>Advance Server LVL 3</h3>
-            <p>Akun Mobile Legends Advance Server.</p>
-            <div class="price">Rp10.000</div>
-            <button>Beli Sekarang</button>
+
+            <div class="product-image">
+                🎮
+            </div>
+
+            <div class="product-info">
+
+                <h3>Advance Server LVL 3</h3>
+
+                <div class="price">
+                    Rp10.000
+                </div>
+
+                <div class="stock">
+                    Stok tersedia
+                </div>
+
+                <button class="buy-button"
+                    onclick="alert('Fitur pembelian akan kita buat pada tahap berikutnya.')">
+                    BELI SEKARANG
+                </button>
+
+            </div>
+
         </div>
 
+
         <div class="product">
-            <h3>Advance Server LVL 3 (2 Server)</h3>
-            <p>Akun dengan akses 2 server.</p>
-            <div class="price">Rp12.000</div>
-            <button>Beli Sekarang</button>
+
+            <div class="product-image">
+                🎮
+            </div>
+
+            <div class="product-info">
+
+                <h3>Advance Server LVL 3 (2 Server)</h3>
+
+                <div class="price">
+                    Rp12.000
+                </div>
+
+                <div class="stock">
+                    Stok tersedia
+                </div>
+
+                <button class="buy-button"
+                    onclick="alert('Fitur pembelian akan kita buat pada tahap berikutnya.')">
+                    BELI SEKARANG
+                </button>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
+</main>
 
 <footer>
-    © 2026 Saka Store
+    <p>© 2026 Saka Store</p>
+    <p style="margin-top:10px;">
+        Layanan digital terpercaya
+    </p>
 </footer>
 
 </body>
-  </html>
+</html>
