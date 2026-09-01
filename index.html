@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saka Store</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b0b0b;
+            color: white;
+        }
+
+        header {
+    background: #050505;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #222;
+}
+
+.menu {
+    color: #999;
+    font-size: 27px;
+    font-weight: 300;
+    width: 45px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffd000;
+    flex: 1;
+}
+
+.flag {
+    width: 34px;
+    height: 22px;
+    border-radius: 2px;
+    overflow: hidden;
+    border: 1px solid #555;
+    display: flex;
+    flex-direction: column;
+}
+
+.flag span:first-child {
+    background: #e00000;
+    height: 50%;
+}
+
+.flag span:last-child {
+    background: #ffffff;
+    height: 50%;
+}
+        }
+
+        .hero {
+            padding: 45px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, #111827, #080808);
+        }
+
+        .hero h1 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product {
+            background: #171717;
+            border: 1px solid #292929;
+            border-radius: 15px;
+            padding: 18px;
+        }
+
+        .product h3 {
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            color: #ffd000;
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #ffd000;
+            color: #111;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 30px 20px;
+            text-align: center;
+            background: #050505;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="menu">☰</div>
+
+    <div class="logo">SAKASTORE.ID</div>
+
+    <div class="flag">
+        <span></span>
+        <span></span>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Selamat Datang di Saka Store</h1>
+    <p>
+        Tempat pembelian produk digital dengan proses cepat,
+        mudah dan otomatis.
+    </p>
+</section>
+
+<div class="container">
+
+    <h2 class="section-title">Produk Kami</h2>
+
+    <div class="products">
+
+        <div class="product">
+            <h3>Advance Server LVL 3</h3>
+            <p>Akun Mobile Legends Advance Server.</p>
+            <div class="price">Rp10.000</div>
+            <button>Beli Sekarang</button>
+        </div>
+
+        <div class="product">
+            <h3>Advance Server LVL 3 (2 Server)</h3>
+            <p>Akun dengan akses 2 server.</p>
+            <div class="price">Rp12.000</div>
+            <button>Beli Sekarang</button>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Saka Store
+</footer>
+
+</body>
+  </html>
