@@ -73,20 +73,18 @@
         }
 
         .product-card {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    display: block;
     padding: 15px;
     margin-bottom: 25px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 15px;
-}
+    overflow: hidden;
+        }
 
 .product-image {
-    width: 110px;
-    height: 80px;
-    flex-shrink: 0;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     border-radius: 10px;
 }
