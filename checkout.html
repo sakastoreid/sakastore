@@ -72,6 +72,40 @@
             outline: none;
         }
 
+        .product-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+}
+
+.product-image {
+    width: 110px;
+    height: 80px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    flex: 1;
+}
+
+.product-info .product-name {
+    margin-bottom: 6px;
+}
+       
+        
         .product-name {
             font-size: 20px;
             font-weight: bold;
@@ -129,18 +163,26 @@
             Pembayaran
         </div>
 
-        <div class="section">
+        <div class="product-card">
+
     <div class="product-image">
         <img id="productImage" src="" alt="Produk">
     </div>
 
-    <div class="product-name">
-        Advance Server LVL 3
+    <div class="product-info">
+        <div class="product-name">
+            Advance Server LVL 3
+        </div>
+
+        <div class="price">
+            Rp2.000
+        </div>
+
+        <div class="stock">
+            Stok tersedia
+        </div>
     </div>
 
-    <div class="price">
-        Rp2.000
-    </div>
         </div>
 
         <div class="section">
