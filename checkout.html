@@ -255,23 +255,24 @@
 <script>
 document.querySelector('.buy-button').addEventListener('click', function () {
 
-    const whatsapp = document.querySelector('input[type="tel"]').value.trim();
-    const payment = document.querySelector('select').value;
+  const whatsapp = document.querySelector('input[type="tel"]').value.trim();
+  const payment = document.querySelector('select').value;
 
-    if (whatsapp === '') {
-        alert('Silakan masukkan nomor WhatsApp Anda.');
-        return;
-    }
+  if (whatsapp === "") {
+    alert("Silakan masukkan nomor WhatsApp Anda.");
+    return;
+  }
 
-    if (payment === '') {
-        alert('Silakan pilih metode pembayaran.');
-        return;
-    }
+  if (payment === "") {
+    alert("Silakan pilih metode pembayaran.");
+    return;
+  }
 
-    console.log('Data lengkap:', {
-    whatsapp: whatsapp,
-    payment: payment
-});
+  alert(
+    "Pesanan berhasil dibuat!\n\n" +
+    "WhatsApp: " + whatsapp + "\n" +
+    "Metode pembayaran: " + payment.toUpperCase()
+  );
 
 });
 </script>
