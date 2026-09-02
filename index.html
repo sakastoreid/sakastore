@@ -297,22 +297,25 @@
 </main>
 <section id="pembayaran" class="payment-section">
 
-    <h2>Metode Pembayaran</h2>
-
+    <h2>Detail Pesanan</h2>
+<div class="selected-product">
+    <div>Produk yang Dipilih</div>
+    <strong id="selected-product-name">Belum ada produk dipilih</strong>
+</div>
     <div class="payment-group">
         <label>Nomor WhatsApp</label>
-        <input type="text" placeholder="Masukkan Nomor WhatsApp Anda">
+        <input type="text" id="nomor-wa" placeholder="Masukkan Nomor WhatsApp Anda">
         <p class="payment-note">*Pastikan nomor Anda aktif dan benar.</p>
     </div>
 
     <div class="payment-group">
         <label>Kode Promo</label>
-        <input type="text" placeholder="Masukkan Kode Promo (Jika Ada)">
+        <input type="text" id="kode-promo" placeholder="Masukkan Kode Promo (Jika Ada)">
     </div>
 
     <div class="payment-group">
         <label>Metode Pembayaran</label>
-        <select>
+        <select id="metode-pembayaran">
             <option value="">Pilih Metode Pembayaran</option>
             <option value="gopay">GoPay</option>
             <option value="dana">DANA</option>
@@ -351,11 +354,37 @@
     });
 
     produk.classList.add("selected");
-
+document.getElementById("selected-product-name").textContent =
+    produk.querySelector("h3").textContent;
     document.getElementById("pembayaran").scrollIntoView({
         behavior: "smooth"
     });
         }
+    document.querySelector(".payment-button").addEventListener("click", function() {
+
+    const nomorWA = document.getElementById("nomor-wa").value;
+    const kodePromo = document.getElementById("kode-promo").value;
+    const metode = document.getElementById("metode-pembayaran").value;
+    const produk = document.getElementById("selected-product-name").textContent;
+
+    if (nomorWA === "") {
+        alert("Silakan masukkan nomor WhatsApp Anda.");
+        return;
+    }
+
+    if (metode === "") {
+        alert("Silakan pilih metode pembayaran.");
+        return;
+    }
+
+    alert(
+        "Pesanan berhasil diproses!\n\n" +
+        "Produk: " + produk + "\n" +
+        "WhatsApp: " + nomorWA + "\n" +
+        "Metode: " + metode
+    );
+
+});
 </script>
 
 </body>
