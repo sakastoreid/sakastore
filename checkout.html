@@ -286,15 +286,9 @@ document.querySelector('.buy-button').addEventListener('click', function() {
 
                 <div class="modal-product">
 
-                    <img src="${productImage}" alt="${productName}">
+    <img src="${productImage}" alt="${productName}">
 
-                    <div class="modal-product-info">
-                        <h3>${productName}</h3>
-                        <div class="modal-price">${productPrice}</div>
-                        <div class="modal-stock">✓ Stok tersedia</div>
-                    </div>
-
-                </div>
+</div>
 
                 <div class="detail-title">DETAIL PEMBELIAN</div>
 
@@ -405,22 +399,20 @@ document.querySelector('.buy-button').addEventListener('click', function() {
         }
 
         .modal-product {
-            background: #222;
-            border: 1px solid #333;
-            border-radius: 18px;
-            padding: 12px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            margin-bottom: 22px;
-        }
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 18px;
+    padding: 10px;
+    margin-bottom: 22px;
+}
 
         .modal-product img {
-            width: 105px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 12px;
-        }
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+}
 
         .modal-product-info h3 {
             margin: 0 0 8px;
@@ -532,10 +524,7 @@ document.querySelector('.buy-button').addEventListener('click', function() {
                 font-size: 21px;
             }
 
-            .modal-product img {
-                width: 90px;
-                height: 70px;
-            }
+           
 
             .detail-row {
                 font-size: 13px;
