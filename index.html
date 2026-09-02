@@ -210,6 +210,9 @@
     font-weight: bold;
     cursor: pointer;
 }
+        .product.selected {
+    border: 3px solid #ffd000;
+        }
     </style>
 </head>
 
@@ -343,9 +346,15 @@
         encodeURIComponent(hargaProduk);
     }
         function pilihProduk(produk) {
-        document.getElementById("pembayaran").scrollIntoView({
-            behavior: "smooth"
-        });
+    document.querySelectorAll(".product").forEach(p => {
+        p.classList.remove("selected");
+    });
+
+    produk.classList.add("selected");
+
+    document.getElementById("pembayaran").scrollIntoView({
+        behavior: "smooth"
+    });
         }
 </script>
 
