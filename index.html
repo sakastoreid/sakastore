@@ -240,7 +240,7 @@
 
     <div class="products">
 
-        <div class="product">
+        <div class="product" onclick="pilihProduk(this)">
 
             <div class="product-image">
                 <img src="advance-server-lvl-3.jpg" alt="Advance Server LVL 3">
@@ -265,7 +265,7 @@
         </div>
 
 
-        <div class="product">
+        <div class="product" onclick="pilihProduk(this)">
 
             <div class="product-image">
                 🎮
@@ -292,7 +292,41 @@
     </div>
 
 </main>
+<section id="pembayaran" class="payment-section">
 
+    <h2>Metode Pembayaran</h2>
+
+    <div class="payment-group">
+        <label>Nomor WhatsApp</label>
+        <input type="text" placeholder="Masukkan Nomor WhatsApp Anda">
+        <p class="payment-note">*Pastikan nomor Anda aktif dan benar.</p>
+    </div>
+
+    <div class="payment-group">
+        <label>Kode Promo</label>
+        <input type="text" placeholder="Masukkan Kode Promo (Jika Ada)">
+    </div>
+
+    <div class="payment-group">
+        <label>Metode Pembayaran</label>
+        <select>
+            <option value="">Pilih Metode Pembayaran</option>
+            <option value="gopay">GoPay</option>
+            <option value="dana">DANA</option>
+            <option value="ovo">OVO</option>
+            <option value="qris">QRIS</option>
+        </select>
+    </div>
+
+    <button class="payment-button">
+        LANJUTKAN PEMBAYARAN
+    </button>
+
+    <p class="payment-note">
+        Pastikan nomor WhatsApp dan metode pembayaran yang Anda pilih sudah benar.
+    </p>
+
+</section>
 <footer>
     <p>© 2026 Saka Store</p>
     <p style="margin-top:10px;">
@@ -308,6 +342,11 @@
         "&harga=" +
         encodeURIComponent(hargaProduk);
     }
+        function pilihProduk(produk) {
+        document.getElementById("pembayaran").scrollIntoView({
+            behavior: "smooth"
+        });
+        }
 </script>
 
 </body>
