@@ -253,26 +253,319 @@
     Layanan digital terpercaya
 </footer>
 <script>
-document.querySelector('.buy-button').addEventListener('click', function () {
+document.querySelector('.buy-button').addEventListener('click', function() {
 
-  const whatsapp = document.querySelector('input[type="tel"]').value.trim();
-  const payment = document.querySelector('select').value;
+    const whatsapp = document.querySelector('input[type="tel"]').value.trim();
+    const payment = document.querySelector('select').value;
 
-  if (whatsapp === "") {
-    alert("Silakan masukkan nomor WhatsApp Anda.");
-    return;
-  }
+    if (whatsapp === "") {
+        alert("Silakan masukkan nomor WhatsApp Anda.");
+        return;
+    }
 
-  if (payment === "") {
-    alert("Silakan pilih metode pembayaran.");
-    return;
-  }
+    if (payment === "") {
+        alert("Silakan pilih metode pembayaran.");
+        return;
+    }
 
-  alert(
-    "Pesanan berhasil dibuat!\n\n" +
-    "WhatsApp: " + whatsapp + "\n" +
-    "Metode pembayaran: " + payment.toUpperCase()
-  );
+    const productName = document.querySelector('.product-name')?.textContent.trim() || "Produk";
+    const productPrice = document.querySelector('.price')?.textContent.trim() || "Rp0";
+    const productImage = document.querySelector('.product-image img')?.src || "";
+
+    const modal = document.createElement('div');
+
+    modal.innerHTML = `
+        <div class="confirmation-overlay">
+
+            <div class="confirmation-modal">
+
+                <button class="close-modal">×</button>
+
+                <h2>🎮 Konfirmasi Pembelian</h2>
+                <p class="modal-subtitle">Pastikan data pembelian Anda sudah benar.</p>
+
+                <div class="modal-product">
+
+                    <img src="${productImage}" alt="${productName}">
+
+                    <div class="modal-product-info">
+                        <h3>${productName}</h3>
+                        <div class="modal-price">${productPrice}</div>
+                        <div class="modal-stock">✓ Stok tersedia</div>
+                    </div>
+
+                </div>
+
+                <div class="detail-title">DETAIL PEMBELIAN</div>
+
+                <div class="detail-row">
+                    <span>👤 Jenis Akun</span>
+                    <strong>${productName}</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>💵 Harga Produk</span>
+                    <strong>${productPrice}</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>💳 Pembayaran</span>
+                    <strong>${payment.toUpperCase()}</strong>
+                </div>
+
+                <div class="detail-row">
+                    <span>📱 WhatsApp</span>
+                    <strong>${whatsapp}</strong>
+                </div>
+
+                <div class="total-row">
+                    <span>Total Bayar</span>
+                    <strong>${productPrice}</strong>
+                </div>
+
+                <div class="warning-box">
+                    ⚠️ <strong>Perhatian:</strong><br>
+                    Pastikan nomor WhatsApp dan data pembelian sudah benar.
+                    Pesanan yang sudah diproses tidak dapat dikembalikan.
+                </div>
+
+                <div class="modal-buttons">
+
+                    <button class="cancel-button">
+                        ✕ BATAL
+                    </button>
+
+                    <button class="confirm-button">
+                        ✓ YA, BAYAR
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const style = document.createElement('style');
+
+    style.textContent = `
+
+        .confirmation-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 99999;
+            overflow-y: auto;
+        }
+
+        .confirmation-modal {
+            width: 100%;
+            max-width: 520px;
+            background: #171717;
+            color: white;
+            border: 1px solid #333;
+            border-radius: 24px;
+            padding: 24px;
+            box-sizing: border-box;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,.6);
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 18px;
+            top: 14px;
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: #292929;
+            color: #fff;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .confirmation-modal h2 {
+            text-align: center;
+            font-size: 25px;
+            margin: 5px 35px 5px;
+        }
+
+        .modal-subtitle {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .modal-product {
+            background: #222;
+            border: 1px solid #333;
+            border-radius: 18px;
+            padding: 12px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .modal-product img {
+            width: 105px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .modal-product-info h3 {
+            margin: 0 0 8px;
+            font-size: 18px;
+        }
+
+        .modal-price {
+            color: #ffd000;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .modal-stock {
+            color: #aaa;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+
+        .detail-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #aaa;
+            margin-bottom: 5px;
+            letter-spacing: .5px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #333;
+            font-size: 15px;
+        }
+
+        .detail-row span {
+            color: #aaa;
+        }
+
+        .detail-row strong {
+            text-align: right;
+            color: #fff;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 0;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .total-row strong {
+            color: #ffd000;
+        }
+
+        .warning-box {
+            background: #fff8d9;
+            color: #946c00;
+            border-radius: 16px;
+            padding: 15px;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .modal-buttons button {
+            flex: 1;
+            min-height: 52px;
+            border: none;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .cancel-button {
+            background: #292929;
+            color: #fff;
+        }
+
+        .confirm-button {
+            background: #ffd000;
+            color: #111;
+        }
+
+        .cancel-button:active,
+        .confirm-button:active {
+            transform: scale(.98);
+        }
+
+        @media (max-width: 480px) {
+
+            .confirmation-overlay {
+                padding: 12px;
+            }
+
+            .confirmation-modal {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .confirmation-modal h2 {
+                font-size: 21px;
+            }
+
+            .modal-product img {
+                width: 90px;
+                height: 70px;
+            }
+
+            .detail-row {
+                font-size: 13px;
+            }
+
+        }
+
+    `;
+
+    document.head.appendChild(style);
+
+    const closeModal = () => {
+        modal.remove();
+        style.remove();
+    };
+
+    modal.querySelector('.close-modal').addEventListener('click', closeModal);
+
+    modal.querySelector('.cancel-button').addEventListener('click', closeModal);
+
+    modal.querySelector('.confirm-button').addEventListener('click', function() {
+
+        alert(
+            "Konfirmasi berhasil!\n\n" +
+            "Produk: " + productName + "\n" +
+            "WhatsApp: " + whatsapp + "\n" +
+            "Pembayaran: " + payment.toUpperCase()
+        );
+
+    });
 
 });
 </script>
